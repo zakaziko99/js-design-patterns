@@ -49,7 +49,7 @@ Object.defineProperty(emptyObject3, 'someKey', {
     enumerable: true,
     configurable: true
 });
-// Warning, be careful with the configs 'writable', 'enumerable' or 'configurable'
+// Warning: be careful with the configs 'writable', 'enumerable' or 'configurable'
 // they have false as default value
 // writable: able to change value with the 1, 2 methods.
 // If is false, any change on value will fire an error exception only under strict mode
@@ -79,6 +79,14 @@ defineProp(person, 'dateOfBirth', '1981');
 defineProp(person, 'hasBeard', false);
 console.log(person);
 // Outputs: Object {car: "Delorean", dateOfBirth: "1981", hasBeard: false}
+// Create a race car driver that inherits from the person object
+var driver = Object.create(person);
+// Set some properties for the driver
+defineProp(driver, 'topSpeed', '100mph');
+// Get an inherited property (1981)
+console.log('driver.dateOfBirth', driver.dateOfBirth);
+// Get the property we set (100mph)
+console.log('driver.topSpeed', driver.topSpeed);
 
 // 4. Object.defineProperties
 var newObject = new Object();
