@@ -1,3 +1,6 @@
+// In this example we will see a basic example of protoype pattern JavaScript design
+
+// Let's create an object that we use later as prototype for another object or instance of object
 var myCar = {
     name: 'Audi Q5',
 
