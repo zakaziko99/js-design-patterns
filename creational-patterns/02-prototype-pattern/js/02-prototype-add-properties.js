@@ -44,6 +44,8 @@ var FiatCar = Object.create(vehicle, {
 // Notice that on Google Chrome console display, the 'id' property of the 'AudiCar' object
 // is faded, that's because the property is not enumerable. It means that the propterty doesn't
 // appear in th for...in or Object.keys method
+// Therefore, it is recommended to explicitly set the 'enumerable' config to true.
+// Otherwise, the property will be invisible, unless you want is so
 console.log(AudiCar);
 AudiCar.getModel();
 console.log(FiatCar);
