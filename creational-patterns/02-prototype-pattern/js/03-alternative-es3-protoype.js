@@ -30,3 +30,21 @@ car.getModel();
 // The problem with this alternative, it's that we can't set properties to be read only
 car.model = 'Audi Q5';
 car.getModel();
+
+// If we don't need any setting of properties, we can use this other alternative
+var vehicle2 = (function() {
+    function F() {};
+
+    return function(proto) {
+        F.prototype = proto;
+        return new F();
+    };
+})();
+
+var suv = vehicle2(vehiclePrototype);
+// Now we can set some properties
+suv.init('Nissan Qashqai');
+console.log(suv);
+
+// We can conclude that the 'Object.create' is lexicaly the best method to create an object
+// with an existing prototype, but be very very carefeul on setting the configs for the properties
