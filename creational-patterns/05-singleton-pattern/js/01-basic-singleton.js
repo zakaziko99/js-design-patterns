@@ -5,7 +5,7 @@ var mySingleton = (function() {
     // Instance stores a reference to the Singleton, and it is private
     var instance;
 
-    // Here, we create an instance of the Singleton object
+    // Here, we create an instance of the Singleton object, this is called the 'Singleton function'
     function init() {
         // Private methods and variables
         function privateMethod() {
@@ -30,6 +30,7 @@ var mySingleton = (function() {
         };
     };
 
+    // Return a static object
     return {
         // Get the Singleton instance if one exists
         // or create one if it doesn't
@@ -45,9 +46,12 @@ var mySingleton = (function() {
 })();
 
 // Usage:
-var singleA = mySingleton.getInstance();
+var singleA = mySingleton.getInstance(); // This is called the 'entry point' from a global context
 var singleB = mySingleton.getInstance();
 console.log(singleA.getRandomNumber() === singleB.getRandomNumber()); // true
 
 // This approach is very usefull to avoid creating useless instances. Also usefull to share
 // one instance for different objects. It's the goal of the 'Dependency Injection' approach
+
+// However, Singleton pattern might not be ideal, if we want test them for example.
+// In this case, we will need more instances of an object for test purposes.
